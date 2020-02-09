@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import products from '../../constants/products';
 
 @Component({
@@ -12,7 +12,10 @@ export class ProductsMainComponent implements OnInit {
 
   public filteredProducts = products;
 
-  constructor() { }
+  public favoriteProducts = [];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -20,6 +23,18 @@ export class ProductsMainComponent implements OnInit {
   search(inputEl) {
     const value = inputEl.value;
     this.filteredProducts = this.products.filter(product => product.Title.toLowerCase().match(value.toLowerCase()));
+  }
+
+  sortASC(field) {
+    this.products.sort(function (a, b) {
+      return (a[field] > b[field]) ? 1 : -1
+    });
+  }
+
+  sortDESC(field) {
+    this.products.sort(function (a, b) {
+      return (a[field] > b[field]) ? -1 : 1
+    });
   }
 
 }

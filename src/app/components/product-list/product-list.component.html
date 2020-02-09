@@ -1,6 +1,22 @@
 <div class="product-list-wrap">
   <ul class="product-list">
     <li
+      *ngFor="let favouriteProduct of favouritesList; let i = index;"
+      class="product"
+    >
+      <img
+        src="{{favouriteProduct.img}}"
+        alt="product.Title"
+      >
+      <button type="button" class="button-favorites--remove" (click)="removeToFavorites(favouriteProduct)">Remove from favorites</button>
+      <h2>{{favouriteProduct.Title}}</h2>
+      <p>{{favouriteProduct.Description}}</p>
+      <a href="{{favouriteProduct.Url}}">Go to product page</a>
+      <span>Rating {{favouriteProduct.Rating}}</span>
+    </li>
+  </ul>
+  <ul class="product-list">
+    <li
       *ngFor="let product of products; let i = index;"
       class="product"
     >
@@ -8,9 +24,11 @@
         src="{{product.img}}"
         alt="product.Title"
       >
-      <h2>{{product.Title}}</h2>
+      <button type="button" class="button-favorites--add" (click)="addToFavorites(product)">Add to favorites</button>
+         <h2>{{product.Title}}</h2>
       <p>{{product.Description}}</p>
       <a href="{{product.Url}}">Go to product page</a>
+      <span>Rating {{product.Rating}}</span>
     </li>
   </ul>
 </div>

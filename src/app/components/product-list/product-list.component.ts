@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output} from '@angular/core';
 
-import { Product } from '../../models/product';
+import {Product} from '../../models/product';
 
 @Component({
   selector: 'app-product-list',
@@ -11,9 +11,35 @@ export class ProductListComponent implements OnInit {
 
   @Input() products: Product[];
 
-  constructor() { }
+  favouritesList: Array<Product> = [];
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  isFavorite(product) {
+    if (this.favouritesList.indexOf(product) !== -1) {
+      return false;
+    }
+    return true;
+  }
+
+  addToFavorites(product) {
+    this.favouritesList.push(product);
+    const index: number = this.products.indexOf(product);
+    if (index !== -1) {
+      this.products.splice(index, 1);
+    }
+  }
+
+  removeToFavorites(product) {
+    const index: number = this.favouritesList.indexOf(product);
+    if (index !== -1) {
+      this.favouritesList.splice(index, 1);
+    }
+    this.products.push(product);
   }
 
 }
