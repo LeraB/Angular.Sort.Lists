@@ -26,11 +26,11 @@ export class ProductsMainComponent implements OnInit {
   }
 
   sortASC(field) {
-    this.products.sort((a, b) => return (a[field] > b[field]) ? 1 : -1; );
+    this.products.sort((a, b) => {return (a[field] > b[field]) ? 1 : -1; });
   }
 
   sortDESC(field) {
-    this.products.sort((a, b) => return (a[field] > b[field]) ? -1 : 1; );
+    this.products.sort((a, b) => {return (a[field] > b[field]) ? -1 : 1; });
   }
 
 }

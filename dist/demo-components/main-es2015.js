@@ -487,14 +487,10 @@ let ProductsMainComponent = class ProductsMainComponent {
         this.filteredProducts = this.products.filter(product => product.Title.toLowerCase().match(value.toLowerCase()));
     }
     sortASC(field) {
-        this.products.sort(function (a, b) {
-            return (a[field] > b[field]) ? 1 : -1;
-        });
+        this.products.sort((a, b) => { return (a[field] > b[field]) ? 1 : -1; });
     }
     sortDESC(field) {
-        this.products.sort(function (a, b) {
-            return (a[field] > b[field]) ? -1 : 1;
-        });
+        this.products.sort((a, b) => { return (a[field] > b[field]) ? -1 : 1; });
     }
 };
 ProductsMainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -538,7 +534,8 @@ __webpack_require__.r(__webpack_exports__);
         img: 'https://user-images.githubusercontent.com/41929050/61567049-13938600-aa33-11e9-9c69-a4184bf8e524.jpeg',
         Url: 'https://www.hackster.io/agent-hawking-1/book-light-dee7e4',
         Title: 'A beautiful switch-on book light',
-        Description: 'Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a useful book light for reading in the dark.',
+        Description: 'Use craft items you have around the house, plus two LEDs and a LilyPad battery holder, to create a' +
+            ' useful book light for reading in the dark.',
         Rating: 4.4
     },
     {
@@ -556,7 +553,8 @@ __webpack_require__.r(__webpack_exports__);
         img: 'https://user-images.githubusercontent.com/41929050/61567051-13938600-aa33-11e9-8ae7-0b5c19aafab4.jpeg',
         Url: 'https://www.hackster.io/agent-hawking-1/create-a-compact-survival-kit-38bfdb',
         Title: 'Create a Compact Survival Kit with LED Track Lighting',
-        Description: 'Use an Altoids tin with Chibitronics sticker LEDs to create a light-up compact that doubles as a survival kit for the young hipster',
+        Description: 'Use an Altoids tin with Chibitronics sticker LEDs to create a light-up compact that doubles as ' +
+            'a survival kit for the young hipster',
         Rating: 3.9
     },
     {
@@ -628,7 +626,8 @@ __webpack_require__.r(__webpack_exports__);
         img: 'https://user-images.githubusercontent.com/41929050/61567062-14c4b300-aa33-11e9-9dcd-8bfed4ece810.png',
         Url: 'https://www.vogueandcode.com/shop/pretty-girls-code-tee',
         Title: 'Pretty Girls Code Tee',
-        Description: 'Everyone\u2019s favorite design is finally here on a tee! The Pretty Girls Code crew-neck tee is available in a soft pink with red writing.',
+        Description: 'Everyone\u2019s favorite design is finally here on a tee! The Pretty Girls Code crew-neck tee is ' +
+            'available in a soft pink with red writing.',
         Rating: 4.3
     },
     {
