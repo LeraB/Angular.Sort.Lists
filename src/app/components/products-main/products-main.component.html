@@ -4,9 +4,10 @@
       type="text"
       #searchInput
       (input)="search(searchInput)"
+    class="search__input"
     >
-    <button type="button" class="button-asc" (click)="sortASC('Rating')">V</button>
-    <button type="button" class="button-desc" (click)="sortDESC('Rating')">V</button>
+    <button type="button" class="search__button search__button--asc" (click)="sortASC('Rating')">V</button>
+    <button type="button" class="search__button search__button--desc" (click)="sortDESC('Rating')">V</button>
   </div>
   <app-product-list
     [products] = filteredProducts
