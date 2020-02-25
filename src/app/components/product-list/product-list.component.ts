@@ -12,18 +12,10 @@ export class ProductListComponent implements OnInit {
   @Input() products: Product[];
 
   favouritesList: Array<Product> = [];
-
   constructor() {
   }
 
   ngOnInit() {
-  }
-
-  isFavorite(product) {
-    if (this.favouritesList.indexOf(product) !== -1) {
-      return false;
-    }
-    return true;
   }
 
   addToFavorites(product) {
@@ -34,7 +26,7 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  removeToFavorites(product) {
+  removeFromFavorites(product) {
     const index: number = this.favouritesList.indexOf(product);
     if (index !== -1) {
       this.favouritesList.splice(index, 1);

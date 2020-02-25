@@ -1,0 +1,19 @@
+<li
+  class="product-list__item"
+>
+  <img
+    src="{{product.img}}"
+    alt="product.Title"
+    class="product-list__img"
+  >
+  <div class="product-list__content">
+    <button type="button" *ngIf="isInFavoriteList; else addButton" class="button-favorites--remove" (click)="removeProductFromList(product)">Remove from favorites</button>
+    <ng-template #addButton>
+    <button type="button" class="button-favorites--add" (click)="addProductToList(product)">Add to favorites</button>
+    </ng-template>
+    <h2>{{product.Title}}</h2>
+    <p class="product-list__description">{{product.Description}}</p>
+    <a href="{{product.Url}}" class="product-list__link">Go to product page</a>
+    <span class="product-list__rating">{{product.Rating}}</span>
+  </div>
+</li>

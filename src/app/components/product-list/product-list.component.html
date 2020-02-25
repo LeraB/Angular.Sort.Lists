@@ -1,42 +1,15 @@
 <div class="product-list-wrap">
-  <h2 *ngIf="favouritesList?.length > 0" class="list-title">Favorites</h2>
-  <ul class="favorite-list">
-    <li
-      *ngFor="let favouriteProduct of favouritesList; let i = index;"
-      class="favorite-list__item"
-    >
-      <img
-        src="{{favouriteProduct.img}}"
-        alt="product.Title"
-        class="product-list__img"
-      >
-      <div class="favorite-list__content">
-      <button type="button" class="button-favorites--remove" (click)="removeToFavorites(favouriteProduct)">Remove from favorites</button>
-      <h2>{{favouriteProduct.Title}}</h2>
-      <p class="favorite-list__description">{{favouriteProduct.Description}}</p>
-      <a href="{{favouriteProduct.Url}}" class="favorite-list__link">Go to product page</a>
-      <span class="favorite-list__rating">{{favouriteProduct.Rating}}</span>
-      </div>
-    </li>
-  </ul>
-  <h2 *ngIf="products?.length > 0" class="list-title">Products</h2>
   <ul class="product-list">
-    <li
-      *ngFor="let product of products; let i = index;"
-      class="product-list__item"
-    >
-      <img
-        src="{{product.img}}"
-        alt="product.Title"
-        class="product-list__img"
-      >
-      <div class="product-list__content">
-      <button type="button" class="button-favorites--add" (click)="addToFavorites(product)">Add to favorites</button>
-         <h2 class="product-list__title">{{product.Title}}</h2>
-      <p class="product-list__description">{{product.Description}}</p>
-      <a href="{{product.Url}}" class="product-list__link">Go to product page</a>
-      <span class="product-list__rating clip-star">{{product.Rating}}</span>
-      </div>
-    </li>
+    <app-product
+      *ngFor="let product of favouritesList"
+      [product]=product
+      (removeFromList)="removeFromFavorites($event)"
+      [isInFavoriteList]=true
+    ></app-product>
+    <app-product
+      *ngFor="let product of products"
+      [product]=product
+      (addToList)="addToFavorites($event)"
+    ></app-product>
   </ul>
 </div>
